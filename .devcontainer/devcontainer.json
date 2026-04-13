@@ -1,0 +1,34 @@
+{
+  "name": "Bun Dev Container",
+  "build": {
+    "dockerfile": "DockerFile",
+    "args": {}
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "installTools": false
+    },
+    "ghcr.io/devcontainers/features/common-utils": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true
+    } 
+  },
+  "forwardPorts": [
+    4200
+  ],
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md"
+      ]
+    },
+    "vscode": {
+      "extensions": [
+        "tmslpm.test-file-generator", 
+        "oven.bun-vscode", 
+        "biomejs.biome",
+        "ms-vscode.live-server"
+      ]
+    }
+  }
+}
