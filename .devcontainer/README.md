@@ -24,3 +24,5 @@ under `build.args`:
   ...
 }
 ```
+
+[devcontainer]: devcontainer.json
