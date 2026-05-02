@@ -1,13 +1,24 @@
+FROM ghcr.io/getzola/zola@sha256:39379b3ddffcc4f2b23ab250e3e6ddf550745caa1cf6b3eb9e4878c211023a2a AS zola
+
 FROM mcr.microsoft.com/devcontainers/base:noble@sha256:7ee7da33a68d997971660d91ecc8372e55a38a777c3c6bd6808daf91928052db
 
-ARG DEBIAN_FRONTEND=noninteractive
 ENV DO_NOT_TRACK=1
-
 ARG BUN_VERSION
 ARG BUN_SHA256_X64
 ARG BUN_SHA256_AARCH64
+ARG vscode
 
-COPY scripts/install-bun.bash /tmp/install-bun.bash
+RUN if [[ -z "$DEV_CONTAINER_CLI" ]] ; then printf "\nERROR: This Dockerfile needs to be built with VS Code !" && exit 1; else printf "VS Code is detected: $DEV_CONTAINER_CLI"; fi
+
+RUN apt-get update \
+    && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY install.bash /tmp/install-bun.bash
+
 RUN chmod +x /tmp/install-bun.bash \
     && /tmp/install-bun.bash "$BUN_VERSION" "$BUN_SHA256_X64" "$BUN_SHA256_AARCH64" \
     && rm /tmp/install-bun.bash
+
+COPY --from=zola /bin/zola /usr/local/bin/zola

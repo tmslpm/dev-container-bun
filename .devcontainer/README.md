@@ -1,7 +1,26 @@
-# Dev Container - Notes
+# Dev Container
+
+All base images and toolchains are pinned and checksum-verified.
 
 - Ubuntu 24.04 (pinned by digest)
-- Bun (pinned version + SHA256 verified)
-- VS Code extensions [...](devcontainer.json)
+- Bun (pinned version, SHA256 verified)
+- VS Code extensions auto-installed, see [`devcontainer.json`][devcontainer]
 
-Versions and SHA256 checksums are set in `.devcontainer/devcontainer.json` under `build.args`.
+## Configuration
+
+All pinned versions and SHA256 checksums live in [`devcontainer.json`][devcontainer]
+under `build.args`:
+
+```jsonc
+{
+  "name": "Bun Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": { <-- HERE
+      "BUN_VERSION": "1.x.x",
+      ...  
+    }
+  },
+  ...
+}
+```
