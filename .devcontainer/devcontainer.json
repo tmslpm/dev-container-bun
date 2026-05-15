@@ -4,9 +4,9 @@
     "dockerfile": "DockerFile",
     "args": {
       "DEV_CONTAINER_CLI": "true",
-      "BUN_VERSION": "bun-v1.1.34",
-      "BUN_SHA256_X64": "4bc000ff5096c5348767ad04d993505f210039a95880273a76d7bd0af0fc2f1f",
-      "BUN_SHA256_AARCH64": "04862513246ec9476f8a9b025441d3391949a009c7fabbf5a20bf5d09507c8e0"
+      "BUN_VERSION": "bun-v1.3.13",
+      "BUN_SHA256_X64": "79c0771fa8b92c33aae41e15a0e0d307ea99d0e2f00317c71c6c53237a78e25a",
+      "BUN_SHA256_AARCH64": "70bae41b3908b0a120e1e58c5c8af30e74afae3b8d11b0d3fdd8e787ddfb4b22"
     }
   },
   "features": {
