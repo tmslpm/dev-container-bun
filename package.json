@@ -1,11 +1,39 @@
 {
   "name": "dev-container-bun",
-  "module": "src/index.ts",
+  "module": "index.ts",
   "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
+  "private": true,
+  "scripts": {
+    "lint": "biome lint ./packages",
+    "lint:fix": "biome lint --write ./packages",
+    "format": "biome format --write ./packages",
+    "check": "biome check --write ./packages",
+    "tree": "find . -not -path '*/node_modules/*' -not -path '*/.git/*' | sort"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:dev",
+    "@socketsecurity/bun-security-scanner": "catalog:dev",
+    "@types/bun": "catalog:dev",
+    "@types/node": "catalog:dev"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "catalog": {
+        "pino": "^10.3.1"
+    },
+    "catalogs": {
+      "dev": {
+        "@biomejs/biome": "^2.5.9", 
+        "@socketsecurity/bun-security-scanner": "^1.1.2",
+        "@types/bun": "latest",
+        "@types/node": "^26.2.0"
+      },
+      "testing": {}
+    }
   }
 }
