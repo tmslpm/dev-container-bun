@@ -1,0 +1,17 @@
+{
+  "name": "foo",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --hot ./dev.bun.ts",
+    "build": "bun ./build.bun.ts",
+  },
+  "dependencies": {
+    "pino": "catalog:"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:dev",
+    "@types/bun": "catalog:dev",
+  }
+}
