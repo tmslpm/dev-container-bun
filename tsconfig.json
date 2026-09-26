@@ -6,9 +6,6 @@
       "path": "./packages/bar"
     },
     {
-      "path": "./packages/baz"
-    },
-    {
       "path": "./packages/bar"
     }
   ]
