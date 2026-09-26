@@ -1,5 +1,5 @@
 {
-  "name": "foo",
+  "name": "bar",
   "module": "src/index.ts",
   "type": "module",
   "private": true,
