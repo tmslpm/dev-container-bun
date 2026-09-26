@@ -2,7 +2,7 @@
 set -euo pipefail
 
 container_image="mcr.microsoft.com/devcontainers/base:noble"
-bun_version="bun-v1.1.34"
+bun_version="bun-v1.4.0"
 
 podman pull mcr.microsoft.com/devcontainers/base:noble
 podman inspect --format='{{index .RepoDigests 0}}' mcr.microsoft.com/devcontainers/base:noble

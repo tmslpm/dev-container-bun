@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "presentation": {
+        "showReuseMessage": false,
+        "clear": true,
+        "panel": "shared",
+    },
+    "tasks": [
+        {
+            "label": "git: wip",
+            "detail": "commits and pushes all changes as 'wip'",
+            "icon": {
+                "color": "terminal.ansiYellow",
+                "id": "git-commit"
+            },
+            "type": "shell",
+            "command": "git add . && git commit -m \"wip\" && git push"
+        }
+    ]
+}
